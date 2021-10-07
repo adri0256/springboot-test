@@ -9,8 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //végleges megoldás: ".permitAll()" helyett ".hasAnyRole("Admin")" - így csak admin jogosultsággal lehet pl. törölni
-
         http.authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/user/all").permitAll()
                 .antMatchers(HttpMethod.GET, "/user/find/**").permitAll()
